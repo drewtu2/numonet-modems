@@ -11,6 +11,7 @@ find_package(Threads REQUIRED)
 
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_MACOSX_RPATH 1)
+
 if(CMAKE_COMPILER_IS_GNUCXX)
     add_definitions(-Wall -ansi -Wno-deprecated -pthread -std=c++11)
 endif()
