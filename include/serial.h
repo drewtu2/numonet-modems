@@ -25,6 +25,21 @@
 
 
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include <time.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <sys/time.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include "termios.h"
+
+
+
+
 #define MAX_PATH_LENGTH		64
 
 /**
@@ -45,21 +60,18 @@ private:
     static int lock_flag;
     static int uart_handle;
 
-    char init_cmd[] = {0x2B, 0x2B, 0x2B, 0x0A};
-    char mmpd_cmd[] = {0x6D, 0x6D, 0x70, 0x64, 0x0A};
-    char mmpd_res[] = {0x40, 0x00, 0x6E};
 
 public:
-  Serial();
-  Serial(char* path, int len);
-  virtual ~Serial();
+    Serial();
+    Serial(char* path, int len);
+    virtual ~Serial();
 
-  int Configure(int baud, int dataBits, int stopBits, char Parity);
-  int SetTimeout(char num_of_100ms);
-  int ClearBuffer();
-  int Write(char* data_ptr, int len);
-  int Read(char* data_ptr, int len);
-  int Close();
+    int Configure(int baud, int dataBits, int stopBits, char Parity);
+    int SetTimeout(char num_of_100ms);
+    int ClearBuffer();
+    int Write(char* data_ptr, int len);
+    int Read(char* data_ptr, int len);
+    int Close();
 };
 
 

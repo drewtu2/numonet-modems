@@ -34,7 +34,7 @@
 #include <sys/types.h>
 #include "termios.h"
 
-#include "serial.h"
+#include "include/serial.h"
 
 
 
